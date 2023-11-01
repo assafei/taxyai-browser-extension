@@ -101,6 +101,10 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
           if (wasStopped()) break;
           setActionStatus('transforming-dom');
           const currentDom = templatize(html);
+          console.log('pageDOM', pageDOM, html, currentDom);
+          console.error('pageDOM', {pageDOM});
+          console.error('html', html);
+          console.error('currentDom', currentDom);
 
           const previousActions = get()
             .currentTask.history.map((entry) => entry.action)

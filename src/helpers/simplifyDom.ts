@@ -50,8 +50,9 @@ function generateSimplifiedDom(
     element.hasAttribute('aria-label') || element.hasAttribute('name');
   const includeNode = interactive || hasLabel;
 
+  const CONTAINERS_TO_KEEP = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
   if (!includeNode && children.length === 0) return null;
-  if (!includeNode && children.length === 1) {
+  if (!includeNode && children.length === 1 && !(CONTAINERS_TO_KEEP.indexOf(element.tagName) >= 0)) {
     return children[0];
   }
 

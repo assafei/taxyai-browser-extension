@@ -53,6 +53,9 @@ export async function determineNextAction(
     })
   );
 
+  console.log('determineNextAction', prompt);
+  alert(prompt);
+  return;
   for (let i = 0; i < maxAttempts; i++) {
     try {
       const completion = await openai.createChatCompletion({
